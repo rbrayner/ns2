@@ -1,15 +1,15 @@
 version: '2'
 services:
-  zimbra:
+  ns2:
     image: ns2
     container_name: ns2
-    hostname: ns2.pop-pe.rnp.br
+    hostname: ns2.fqdn
     build: .
     volumes:
-      - ./etc:/etc/bind
+      - ./etc:/etc/bind9
     network_mode: "bridge"
     ports:
-      - "53/udp:53/udp"
-      - "53/tcp:53/tcp"
+      - "53:53/udp"
+      - "53:53/tcp"
     restart: unless-stopped
 
